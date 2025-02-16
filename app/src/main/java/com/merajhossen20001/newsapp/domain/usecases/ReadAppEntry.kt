@@ -1,0 +1,13 @@
+package com.merajhossen20001.newsapp.domain.usecases
+
+import com.merajhossen20001.newsapp.domain.manager.LocalUserManager
+import kotlinx.coroutines.flow.Flow
+
+class ReadAppEntry (
+    private val localUserManager: LocalUserManager
+){
+    operator fun invoke():Flow<Boolean>{
+        return localUserManager.readAppEntry()
+    }
+
+}
