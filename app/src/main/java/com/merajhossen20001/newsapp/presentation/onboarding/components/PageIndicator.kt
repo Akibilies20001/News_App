@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import com.merajhossen20001.newsapp.presentation.Dimensions.Indicatorsize
+import com.merajhossen20001.newsapp.presentation.Dimensions.DefaultIconSize
 import com.merajhossen20001.newsapp.ui.theme.BlueGray
 
 @Composable
@@ -27,7 +27,7 @@ fun PageIndicator(
         repeat(pageSize){
             page ->
             Box(
-                modifier = Modifier.size(Indicatorsize).clip(shape = CircleShape)
+                modifier = Modifier.size(DefaultIconSize).clip(shape = CircleShape)
                     .background(color = if(page == selectedPage) selectedColor else unSelectedColor)
             )
         }
