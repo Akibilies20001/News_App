@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -30,7 +29,6 @@ import com.merajhossen20001.newsapp.R
 import com.merajhossen20001.newsapp.domain.newsmodels.Article
 import com.merajhossen20001.newsapp.presentation.Dimensions
 import com.merajhossen20001.newsapp.presentation.Dimensions.ArticleCardSize
-import com.merajhossen20001.newsapp.util.Constants
 
 @Composable
 fun ArticleCard(modifier: Modifier = Modifier,
@@ -73,7 +71,7 @@ fun ArticleCard(modifier: Modifier = Modifier,
             Spacer(Modifier.width( Dimensions.ExtraSmallPadding))
 
             Icon(painter = painterResource(R.drawable.baseline_access_time_24),
-                modifier = Modifier.size(Dimensions.DefaultIconSize),
+                modifier = Modifier.size(Dimensions.SmallIconSize),
                 tint = colorResource(R.color.body),
                 contentDescription = "Time Posted"
             )

@@ -5,6 +5,8 @@ plugins {
     id ("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id ("kotlin-parcelize")
+
+
 }
 
 android {
@@ -14,7 +16,7 @@ android {
     defaultConfig {
         applicationId = "com.merajhossen20001.newsapp"
         minSdk = 27
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -42,10 +44,12 @@ android {
     }
 }
 
+
+
 dependencies {
 
 
-// Splash API
+    // Splash API
     implementation ("androidx.core:core-splashscreen:1.0.1")
 
 // Compose Navigation
@@ -90,6 +94,7 @@ dependencies {
 
 
 
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -105,7 +110,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-}
-kapt{
-    correctErrorTypes =true
 }
