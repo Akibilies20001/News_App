@@ -2,7 +2,10 @@ package com.merajhossen20001.newsapp.presentation.common
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
@@ -16,6 +19,21 @@ fun ArticleList(
     articles : LazyPagingItems<Article>,
     onclick: (Article)-> Unit
 ){
+    val handlePagingResult = handlePagingResult(articles = articles)
+    if (handlePagingResult){
+        LazyColumn (
+            modifier = modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(Dimensions.MediumPadding1),
+            contentPadding = PaddingValues(Dimensions.SmallPadding)
+        ){
+            items(count = articles.itemCount){ item->
+                articles[item]?.let{
+                    article->
+                    ArticleCard(article = article, onclick = {onclick(article)} )
+                }
+            }
+        }
+    }
 
 }
 
