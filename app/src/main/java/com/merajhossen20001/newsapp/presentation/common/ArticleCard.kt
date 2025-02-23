@@ -46,12 +46,11 @@ fun ArticleCard(modifier: Modifier = Modifier,
                 .build(),
             contentDescription = article.title)
 
-    }
-    Column (verticalArrangement = Arrangement.SpaceAround,
+        Column (verticalArrangement = Arrangement.SpaceAround,
         modifier = Modifier
             .padding(horizontal = Dimensions.SmallPadding)
             .height(ArticleCardSize)
-    ){
+        ){
         Text(
             text = article.title,
             style = MaterialTheme.typography.bodyMedium,
@@ -86,5 +85,8 @@ fun ArticleCard(modifier: Modifier = Modifier,
 
 
         }
+
+    }
+
     }
 }

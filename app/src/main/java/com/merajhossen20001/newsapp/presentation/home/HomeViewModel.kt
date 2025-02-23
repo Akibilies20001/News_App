@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class HomeViewMode @Inject constructor(
+class HomeViewModel @Inject constructor(
     private val newsUseCases: NewsUseCases
 ): ViewModel() {
     val news = newsUseCases.getNews(

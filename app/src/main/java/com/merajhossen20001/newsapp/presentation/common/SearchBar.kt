@@ -1,13 +1,16 @@
 package com.merajhossen20001.newsapp.presentation.common
 
-
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,10 +24,12 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.merajhossen20001.newsapp.R
 import com.merajhossen20001.newsapp.presentation.Dimensions
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchBar(
     modifier: Modifier = Modifier,
@@ -45,7 +50,7 @@ fun SearchBar(
         }
     }
 
-    Box(modifier = modifier){
+    Box(modifier = modifier.padding(horizontal = Dimensions.SmallPadding)){
         TextField(
             modifier = Modifier
                 .fillMaxWidth()
@@ -69,8 +74,26 @@ fun SearchBar(
             },
             shape = MaterialTheme.shapes.medium,
             colors = TextFieldDefaults.colors(
+               focusedContainerColor = colorResource(R.color.input_background),
+                unfocusedContainerColor = colorResource(R.color.input_background),
+                focusedTextColor = if(!isSystemInDarkTheme()) Color.White else Color.Black,
+                unfocusedTextColor = if(!isSystemInDarkTheme()) Color.White else Color.Black,
+                cursorColor = if(!isSystemInDarkTheme()) Color.White else Color.Black,
+                disabledIndicatorColor = Color.Transparent,
+                errorIndicatorColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent
 
-            )
+            ),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            keyboardActions = KeyboardActions(
+                onSearch = {
+                    onSearch()
+                }
+            ),
+            textStyle = MaterialTheme.typography.bodySmall,
+            interactionSource = interactionSource
         )
 
     }
