@@ -42,7 +42,8 @@ import com.merajhossen20001.newsapp.ui.theme.NewsAppTheme
 @Composable
 fun HomeScreen (
     articles: LazyPagingItems<Article>,
-    navigate : (String)-> Unit
+    navigateToSearch : ()-> Unit,
+    navigateToDetail: (Article) -> Unit
 ){
     val titles by remember {
         derivedStateOf {
@@ -62,6 +63,7 @@ fun HomeScreen (
         //.padding(top = Dimensions.MediumPadding1)
         .statusBarsPadding()
     ) {
+        // shows topbar with Icon and app name
         Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
                 painter = painterResource(R.drawable.ic_logo),
@@ -77,14 +79,15 @@ fun HomeScreen (
         }
 
 
-
+        // composes searchbar
         SearchBar(text = "",
             readOnly = true,
             onValueChange = {},
-            onClick = { navigate(Screen.SearchScreen.route)},
+            onClick = { navigateToSearch()},
             onSearch = {}
         )
         Spacer(modifier = Modifier.height(Dimensions.MediumPadding1))
+        //displays top 10 article titles
         Text(
             text = titles,
             modifier = Modifier
@@ -98,7 +101,7 @@ fun HomeScreen (
         Spacer(modifier = Modifier.height(Dimensions.MediumPadding1))
 
         ArticleList(articles = articles,
-            onclick = { navigate(Screen.DetailsScreen.route)}
+            onclick = { navigateToDetail(it)}
         )
 
 

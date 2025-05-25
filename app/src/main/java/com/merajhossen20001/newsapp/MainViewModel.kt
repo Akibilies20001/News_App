@@ -18,22 +18,23 @@ class MainViewModel @Inject constructor(
     private val appEntryUseCases: AppEntryUseCases
 ): ViewModel() {
     var splashCondition by mutableStateOf(true)
-        private set
+        private set // allows UI to read variable without the need of getter method
 
     var startDestination by mutableStateOf(Screen.AppStartNav.route)
         private set
 
     init {
         appEntryUseCases.readAppEntry().onEach {shouldStartFromHomeScreen ->
+            //checks everytime app stats and if value changes
             if (shouldStartFromHomeScreen){
                 startDestination = Screen.NewsNavigation.route
             }else{
                 startDestination = Screen.AppStartNav.route
             }
-            delay(300)
+            delay(700)
             splashCondition = false
 
-        }.launchIn(viewModelScope)
+        }.launchIn(viewModelScope)// coroutine scope launch short form
 
     }
 }

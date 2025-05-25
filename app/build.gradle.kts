@@ -33,11 +33,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -51,48 +51,50 @@ dependencies {
 
     // Splash API
     implementation ("androidx.core:core-splashscreen:1.0.1")
+    implementation(libs.testng)
 
 // Compose Navigation
-    val nav_version = "2.7.5" // Latest stable as of Feb 2024
+    val nav_version = "2.8.9" // Latest stable as of Feb 2024
     implementation ("androidx.navigation:navigation-compose:$nav_version")
 
 // Dagger Hilt
     val hilt_version = "2.50" // Latest stable version
-    implementation ("com.google.dagger:hilt-android:2.50")
-    kapt ("com.google.dagger:hilt-compiler:2.50")
+    implementation ("com.google.dagger:hilt-android:2.56.2")
+    kapt ("com.google.dagger:hilt-compiler:2.56.2")
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 // Retrofit
-    val retrofit_version = "2.9.0"
+    val retrofit_version = "2.11.0"
     implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
     implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
 
 // Coil
-    implementation ("io.coil-kt:coil-compose:2.6.0") // Latest stable version
+    implementation ("io.coil-kt:coil-compose:2.7.0") // Latest stable version
 
 
 // Datastore
-    implementation("androidx.datastore:datastore-preferences:1.1.0")
+    implementation("androidx.datastore:datastore-preferences:1.1.4")
 
 // Compose Foundation
-    implementation("androidx.compose.foundation:foundation:1.5.4")
+    implementation("androidx.compose.foundation:foundation:1.7.8")
 
 // Accompanist (ensure it's compatible with Compose version)
-    val accompanistVersion = "0.32.0" // Use Beta instead of Alpha for better stability
+    val accompanistVersion = "0.36.0" // Use Beta instead of Alpha for better stability
     implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
 
 // Paging 3
-    val pagingVersion = "3.2.1"
+    val pagingVersion = "3.3.6"
     implementation("androidx.paging:paging-runtime:$pagingVersion")
     implementation("androidx.paging:paging-compose:$pagingVersion")
 
 // Room Database
-    val roomVersion = "2.6.1"
+    val roomVersion = "2.7.0"
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
 
-
+    implementation ("com.google.guava:guava:30.1-android")
+    implementation ("androidx.concurrent:concurrent-futures:1.1.0")
 
 
     implementation(libs.androidx.core.ktx)
@@ -111,3 +113,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
+

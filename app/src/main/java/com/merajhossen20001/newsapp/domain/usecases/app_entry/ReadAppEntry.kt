@@ -8,6 +8,6 @@ class ReadAppEntry (
 ){
     operator fun invoke():Flow<Boolean>{
         return localUserManager.readAppEntry()
-    }
+    }//invoke allows object to be used like a function
 
 }

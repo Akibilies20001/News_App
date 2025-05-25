@@ -7,6 +7,6 @@ class SaveAppEntry (
 ){
     suspend operator fun invoke(){
         localUserManager.saveAppEntry()
-    }
+    } //invoke allows object to be used like a function
 
 }

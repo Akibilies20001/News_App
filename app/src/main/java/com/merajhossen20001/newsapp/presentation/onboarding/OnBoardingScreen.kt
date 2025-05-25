@@ -34,11 +34,16 @@ fun OnBoardingScreen(
 ){
     Column(modifier = Modifier.fillMaxSize()) {
         val pagerState = rememberPagerState(initialPage = 0) {
+            // rememberPagerState remembers the current state of the page with programmatic page changes
+            // comes from com.google.accompanist.pager.
             pages.size
         }
 
         val buttonState = remember {
             derivedStateOf {
+                // checks which page it is on and assign button text
+                // eliminates unnecessary composition and composes UI only when condition is triggered
+                // works when state stays same but inside value changes
                 when(pagerState.currentPage){
                     0 -> listOf("", "Next")
                     1 -> listOf("Back", "Next")

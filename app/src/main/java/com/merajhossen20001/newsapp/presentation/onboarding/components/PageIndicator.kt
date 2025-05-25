@@ -24,6 +24,7 @@ fun PageIndicator(
 ){
     Row (modifier = modifier,
         horizontalArrangement = Arrangement.SpaceBetween){
+        // repeat works like a for loop without continue or break calls
         repeat(pageSize){
             page ->
             Box(

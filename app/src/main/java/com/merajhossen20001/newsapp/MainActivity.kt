@@ -19,6 +19,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Applies splashscreen until condition is set to false
         installSplashScreen().apply {
             setKeepOnScreenCondition{
                 viewModel.splashCondition
